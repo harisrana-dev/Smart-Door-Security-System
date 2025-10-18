@@ -1,0 +1,19 @@
+## Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Face data
+known_faces/*
+encodings/*.pkl
+logs/*
+models/shape_predictor_68_face_landmarks.dat
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Virtual environment
+venv/
+.env
