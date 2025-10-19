@@ -103,7 +103,7 @@ If using 5V relay, include a transistor or level shifter for protection.
 
 1. **Clone repository**
     ```bash
-    git clone <your-github-repo-url>
+    git clone https://github.com/harisrana-dev/Smart-Door-Security-System
     cd SmartDoorSecuritySystem
     ```
 
