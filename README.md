@@ -1,6 +1,12 @@
 # 🔒 Smart Door Security System
 
-A secure and intelligent door access system built with **real-time face recognition**, **head-pose–based liveness detection**, and a **manual PIN fallback** — powered by **OpenCV**, **dlib**, **CustomTkinter**, and **Raspberry Pi GPIO**.
+Smart Door Security System — Intelligent access control using real-time face recognition and liveness verification on a Raspberry Pi.
+
+🔹 Detects and tracks faces using OpenCV & dlib  
+🔹 Verifies liveness via randomized head-pose prompts  
+🔹 Provides a GUI fallback PIN entry  
+🔹 Controls real hardware (relay, PIR sensor, buzzer) using GPIO  
+🔹 Built to work under performance constraints
 
 ---
 
@@ -21,6 +27,9 @@ A secure and intelligent door access system built with **real-time face recognit
 ---
 
 ## Overview
+### 🧰 Skills & Technologies
+Python | Computer Vision (OpenCV, dlib) | Raspberry Pi | Hardware GPIO (relay, sensors) | GUI (CustomTkinter) | Liveness Verification | Logging & Data Management
+
 The **Smart Door Security System** enhances entry authentication by combining **face recognition** with **passive head-pose–based liveness detection**, ensuring only live, authorized users are granted access.  
 If recognition fails or spoofing is detected, the system falls back to a **PIN keypad** for manual authentication.
 
@@ -46,6 +55,17 @@ All access attempts — successful or denied — are stored in structured **CSV 
 - ⚙️ **GPIO hardware control** (relay, PIR, LED, buzzer)
 - 🪶 **Smooth, non-blocking threading** for camera, recognition, and liveness
 - 🧰 **Modular codebase** — easily expandable
+
+### 🔍 Problem
+Traditional door security systems rely on just a password or key, which is prone to misuse.
+
+### 💡 Solution
+This system uses multi-step authentication: face recognition + liveness check + PIN fallback.
+
+### 📈 Impact
+✔ More secure than basic systems  
+✔ Works on low-power Raspberry Pi  
+✔ Handles false positives with multi-factor checks
 
 ---
 
