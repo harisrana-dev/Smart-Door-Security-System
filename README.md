@@ -8,13 +8,18 @@ Smart Door Security System — Intelligent access control using real-time face r
 🔹 Controls real hardware (relay, PIR sensor, buzzer) using GPIO  
 🔹 Built to work under performance constraints
 
+This project was designed and implemented by me as an end-to-end prototype,
+with iterative development, debugging, and system integration on Raspberry Pi.
+
 ---
 
 ## Table of Contents
 - [Overview](#overview)
+- [Problem → Solution → Impact](#problem--solution--impact)
 - [Features](#features)
 - [Core Logic](#core-logic)
 - [Hardware Setup](#hardware-setup)
+- [Tech Stack & Skills](#tech-stack--skills)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
@@ -23,26 +28,31 @@ Smart Door Security System — Intelligent access control using real-time face r
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
+- [Limitations & Future Work](#limitations--future-work)
+- [What I Learned](#what-i-learned)
+  
 
 ---
 
 ## Overview
-### 🧰 Skills & Technologies
-Python | Computer Vision (OpenCV, dlib) | Raspberry Pi | Hardware GPIO (relay, sensors) | GUI (CustomTkinter) | Liveness Verification | Logging & Data Management
-
-The **Smart Door Security System** enhances entry authentication by combining **face recognition** with **passive head-pose–based liveness detection**, ensuring only live, authorized users are granted access.  
-If recognition fails or spoofing is detected, the system falls back to a **PIN keypad** for manual authentication.
-
-The system integrates:
-- **Real-time camera feed** (USB or RTSP IP camera)
-- **PIR motion sensor trigger**
-- **Relay-controlled door lock**
-- **Buzzer and LED indicators**
-- **Graphical interface** for status, prompts, and logs
-
-All access attempts — successful or denied — are stored in structured **CSV logs**.
+This project implements a smart door security solution that authenticates users using face recognition and liveness detection, with a PIN-based fallback mechanism. The system is optimized to run in real time on low-power hardware (Raspberry Pi).
 
 ---
+
+## Problem → Solution → Impact
+
+### Problem
+Traditional door access systems rely on keys or static passwords, which are prone to misuse and lack verification of a real human presence.
+
+### Solution
+This system combines face recognition with liveness verification and a PIN fallback, ensuring secure and flexible authentication on embedded hardware.
+
+### Impact
+- Works in real time on Raspberry Pi
+- Reduces false access using liveness checks
+- Integrates vision-based security with physical door control
+
+
 
 ## Features
 
@@ -56,16 +66,6 @@ All access attempts — successful or denied — are stored in structured **CSV 
 - 🪶 **Smooth, non-blocking threading** for camera, recognition, and liveness
 - 🧰 **Modular codebase** — easily expandable
 
-### 🔍 Problem
-Traditional door security systems rely on just a password or key, which is prone to misuse.
-
-### 💡 Solution
-This system uses multi-step authentication: face recognition + liveness check + PIN fallback.
-
-### 📈 Impact
-✔ More secure than basic systems  
-✔ Works on low-power Raspberry Pi  
-✔ Handles false positives with multi-factor checks
 
 ---
 
@@ -111,6 +111,17 @@ If using 5V relay, include a transistor or level shifter for protection.
 
 ---
 
+## Tech Stack & Skills
+- Python
+- OpenCV (image processing & face detection)
+- Raspberry Pi (GPIO, hardware interfacing)
+- Computer Vision fundamentals (face recognition, landmarks)
+- Tkinter / CustomTkinter (GUI)
+- Multithreading (basic concurrency, threading issues explored)
+
+
+---
+
 ## Installation
 
 ### Prerequisites
@@ -131,6 +142,8 @@ If using 5V relay, include a transistor or level shifter for protection.
     ```bash
     pip install -r requirements.txt
     ```
+    ⚠️ Note: `dlib` installation on Raspberry Pi may require manual compilation.
+
 
 3. **Download models**
     Place the following files in the `models/` directory:
@@ -249,10 +262,21 @@ Unauthorized redistribution, modification, or commercial use without explicit pe
 
 ---
 
+## Limitations & Future Work
+- PIN fallback module requires refactoring due to threading conflicts
+- Haar Cascade used instead of deep models to meet Raspberry Pi performance limits
+- Liveness detection is rule-based and can be improved with learning-based methods
 
+---
 
-**Version:** 1.0  
-**Last Updated:** October 2025  
+## What I Learned
+- Optimizing computer vision pipelines for low-power devices
+- Trade-offs between accuracy and performance (Haar Cascade vs deep models)
+- Integrating software logic with physical hardware
+- Debugging real-time systems and concurrency issues
+
+---
+ 
 **Developed by:** Haris Kamal Rana  
 Built with ❤️ using Python, OpenCV, dlib, and Raspberry Pi GPIO.
 
